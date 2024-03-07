@@ -14548,8 +14548,8 @@ components:
           description: Omschrijving van de betrekking tussen de ZAAK en het OBJECT.
           title: relatieomschrijving
           maxLength: 80
-        # _expand:
-        #   $ref: '#/components/schemas/ZaakObjectEmbedded'
+        _expand:
+          $ref: '#/components/schemas/ZaakObjectEmbedded'
       required:
         - objectType
         - url
@@ -14589,12 +14589,12 @@ components:
           woz_waarde: '#/components/schemas/woz_waarde_ZaakObject'
           zakelijk_recht: '#/components/schemas/zakelijk_recht_ZaakObject'
           overige: '#/components/schemas/overige_ZaakObject'
-    ZaakObjectExpanded:
-      allOf:
-      - $ref: '#/components/schemas/ZaakObject'
-      - properties:
-            _expand:
-              $ref: '#/components/schemas/ZaakObjectEmbedded'
+    # ZaakObjectExpanded:
+    #   allOf:
+    #   - $ref: '#/components/schemas/ZaakObject'
+    #   - properties:
+    #         _expand:
+    #           $ref: '#/components/schemas/ZaakObjectEmbedded'
     ZaakObjectEmbedded:
       type: object
       description: "**LET OP: Deze expand kan alleen worden toegepast op het `/zaken` endpoint en niet op het `/zaakobjecten` endpoint!**"
