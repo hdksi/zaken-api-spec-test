@@ -13045,8 +13045,8 @@ components:
             dat STATUSsen in die ZAAK bereikt zijn.
           title: statussen
           uniqueItems: true
-        _expand:
-            $ref: '#/components/schemas/RolEmbedded'
+       # _expand:
+       #   $ref: '#/components/schemas/RolEmbedded'
       required:
         - betrokkeneType
         - omschrijving
@@ -13066,12 +13066,12 @@ components:
           niet_natuurlijk_persoon: '#/components/schemas/niet_natuurlijk_persoon_Rol'
           organisatorische_eenheid: '#/components/schemas/organisatorische_eenheid_Rol'
           vestiging: '#/components/schemas/vestiging_Rol'
-    # RolExpanded:
-    #  allOf:
-    #  - $ref: '#/components/schemas/Rol'
-    #  - properties:
-    #       _expand:
-    #         $ref: '#/components/schemas/RolEmbedded'
+    RolExpanded:
+    allOf:
+     - $ref: '#/components/schemas/Rol'
+     - properties:
+          _expand:
+            $ref: '#/components/schemas/RolEmbedded'
     RolEmbedded:
       description: "**LET OP: Deze expand kan alleen worden toegepast op het `/zaken` endpoint en niet op het `/rollen` endpoint!**"
       type: object
@@ -14548,8 +14548,8 @@ components:
           description: Omschrijving van de betrekking tussen de ZAAK en het OBJECT.
           title: relatieomschrijving
           maxLength: 80
-        _expand:
-            $ref: '#/components/schemas/ZaakObjectEmbedded'
+        # _expand:
+        #   $ref: '#/components/schemas/ZaakObjectEmbedded'
       required:
         - objectType
         - url
@@ -14589,12 +14589,12 @@ components:
           woz_waarde: '#/components/schemas/woz_waarde_ZaakObject'
           zakelijk_recht: '#/components/schemas/zakelijk_recht_ZaakObject'
           overige: '#/components/schemas/overige_ZaakObject'
-    # ZaakObjectExpanded:
-    #   allOf:
-    #   - $ref: '#/components/schemas/ZaakObject'
-    #   - properties:
-    #         _expand:
-    #           $ref: '#/components/schemas/ZaakObjectEmbedded'
+    ZaakObjectExpanded:
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - properties:
+            _expand:
+              $ref: '#/components/schemas/ZaakObjectEmbedded'
     ZaakObjectEmbedded:
       type: object
       description: "**LET OP: Deze expand kan alleen worden toegepast op het `/zaken` endpoint en niet op het `/zaakobjecten` endpoint!**"
